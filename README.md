@@ -12,3 +12,15 @@ build_and_test_oracle_tomcat_app_in_docker_containers_in_EC2.sh
 ```
 script to produce the EC2 instances into a state where they will be useful together.
 
+NOTE:
+
+This testing can be done from the command line with:
+```bash
+behave features --summary --junit
+```
+
+Make sure that you have installed the proper Python modules first, using things such as
+```bash
+pip install behave --user
+pip install PyHamcrest --user
+```
