@@ -59,3 +59,6 @@ else
     echo "DOCKER CREATION/DEPLOYMENT WAS NOT SUCCESSFUL!"
 fi
 rm temp
+
+echo Run regression tests on functionality
+behave features/local_containers* --summary

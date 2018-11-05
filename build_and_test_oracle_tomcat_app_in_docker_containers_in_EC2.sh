@@ -76,3 +76,7 @@ else
     echo "EC2 CREATION/DEPLOYMENT WAS NOT SUCCESSFUL!"
 fi
 rm temp
+
+
+echo Run deployment tests on infrastructure generated
+behave features/aws_deployment* --summary
