@@ -10,7 +10,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get update
 
 # Finally, install Docker:
-sudo apt-get install -y docker-ce
+sudo apt-get install -y -qq docker-ce
 
 # AUTHENTICATE - FIX  THIS!!!
 sudo docker login -u howarddeiner -p hjd001

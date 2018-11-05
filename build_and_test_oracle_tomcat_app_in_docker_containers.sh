@@ -16,6 +16,11 @@ sudo -S <<< "password" docker run \
 echo Pause 60 seconds to allow Oracle to start up
 sleep 60
 
+echo Create a user and password for the Oracle Database
+sqlplus sys/oracle@localhost:1521/xe as sysdba <<< "CREATE USER ORACLEDB IDENTIFIED BY ORACLEDBPW;"
+sqlplus sys/oracle@localhost:1521/xe as sysdba <<< "GRANT CONNECT, RESOURCE, DBA TO ORACLEDB;"
+sqlplus sys/oracle@localhost:1521/xe as sysdba <<< "GRANT UNLIMITED TABLESPACE TO ORACLEDB;"
+
 echo Create the Tomcat war, including oracleConfig.properties with oracletest baked into the Oracle url, to allow communication to the locally operating Oracle instance on the dockernet we just created
 sed -i -r 's/^url\=.*$/url=jdbc:oracle:thin:@oracletest:1521\/xe/g' oracleConfig.properties
 mvn clean compile war:war
